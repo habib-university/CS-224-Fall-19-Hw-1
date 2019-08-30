@@ -39,15 +39,15 @@ The problem is to be solved in a single file, `seeplusia.cpp`, and submitted to 
 _Deadline_: 18h on Wednesday, 11 September on GitHub.
 
 #### 2. Feedback Form
-Every student has to submit feedback on the homework at [`LMS -> Tests & Quizzes`](http://lms.habib.edu.pk/x/8j9mrjx). It is recommended that you fill this as soon as you submit your solutions but the deadline is 1 day later just in case.
+Every student has to submit feedback on the homework at [`LMS -> Tests & Quizzes`](https://lms.habib.edu.pk/x/gAfY51). It is recommended that you fill this as soon as you submit your solutions but the deadline is 1 day later just in case.
 
-_Deadline_: 18h on Wednesday, 11 September on [`LMS -> Tests & Quizzes`](http://lms.habib.edu.pk/x/8j9mrjx).
+_Deadline_: 18h on Wednesday, 11 September on [`LMS -> Tests & Quizzes`](https://lms.habib.edu.pk/x/gAfY51).
 
 #### 3. Peer Review
 
-Every student will be assigned 2 submissions for grading according to `rubric.csv`. See `LMS -> Assignments` for details on the peer review.
+Every student will be assigned 2 submissions for grading according to `rubric.csv`. See [`LMS -> Assignments`](https://lms.habib.edu.pk/x/72U32u) for details on the peer review.
 
-_Deadline_: 18h on Friday, 13 September on `LMS -> Assignments`.
+_Deadline_: 18h on Friday, 13 September on [`LMS -> Assignments`](https://lms.habib.edu.pk/x/72U32u).
 
 ### Tips
 
