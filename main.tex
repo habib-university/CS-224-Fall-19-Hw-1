@@ -1,0 +1,116 @@
+\documentclass[addpoints]{exam}
+
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows, arrows.meta}
+
+% Header and footer.
+\pagestyle{headandfoot}
+\runningheadrule
+\runningfootrule
+\runningheader{CS 224}{Legend of SeePlusia}{Spring 2019}
+\runningfooter{}{Page \thepage\ of \numpages}{}
+\firstpageheader{}{}{}
+
+\qformat{{\large\bf \thequestiontitle}\hfill}
+\boxedpoints
+% \printanswers
+
+
+\title{Homework 1: Legend of SeePlusia}
+\author{CS 224 Object Oriented Programming and Design Methodologies\\Habib University\\Summer 2019}
+\date{Due: 20h on Monday, 24 June}
+
+\begin{document}
+\maketitle
+
+\begin{questions}
+
+\titledquestion{Legend of SeePlusia}
+
+Prince Lazy has been captured by an evil wizard. You are Zeldana, a female warrior who takes it upon yourself to rescue the prince and return him to his family. You go off on a quest through the dangerous world of SeePlusia to search for the three mythical crystals of Objectos. Together the crystals will give you the power to defeat the wizard and rescue Prince Lazy.
+
+The world of SeePlusia is shown in the map on Page \pageref{sec:map}. It shows the different locations in the world and the time and direction of travel between locations is given by an arrow and the number of days respectively.
+
+The rules of the game of Legend of SeePlusia are as follows.
+\begin{itemize}
+\item You begin at {\tt Enchanted Forest} on the first day with enough food to last 30 days.
+\item You have to save Prince Lazy who is held captive at {\tt Wizard's Castle}.
+\item At each location you can only go in one of four directions: {\tt north}, {\tt south}, {\tt east}, {\tt west}.
+\item Before rescuing the prince, you have to collect 3 {\tt Objectos} crystals from the indicated locations.
+\item An {\tt Objectos} crystal is automaticaly retrieved when you arrive at its location.
+\item Once you retrieve a crystal, it is no longer present at that location.
+\item If you arrive at {\tt Sands of Quick}, you slowly sink into quicksand and die and the game is over.
+\item You cannot move past {\tt Bridge of Death} to {\tt Wizard's Castle} unless you have all three crystals.
+\item Once you reach {\tt Wizard's Castle}, the Prince is rescued and the game is over.
+\item If you run out of food before rescuing the prince, you die of starvation and the game is over.
+\end{itemize}
+
+\titledquestion{Your Task}
+Write a program to implement a text based version of the game. At the heart of the game is your {\it game loop} which takes and processes user input to change the {\it game state} according to the game's rules until the game is over. The game state is comprised of
+\begin{itemize}
+\item the number of days since the player started,
+\item the number of crystals she currently has, and
+\item her current location.
+\end{itemize}
+
+At each move, the player is asked for the direction where she wants to move. A valid direction is one of  {\tt north}, {\tt south}, {\tt east}, {\tt west}. Some valid directions result in invalid moves on the map, e.g. {\tt north} from {\tt Marsh of the Undead}. An invalid direction or move uses up the move and adds a day to the number of days spent.
+
+At the end of each move, the user's state is updated and displayed. Additional display of your choice occurs at particular events in the game. These are as follows.
+\begin{itemize}
+\item the game begins,
+\item the player enters an invalid direction or move,
+\item the player retrieves a crystal,
+\item the player tries to  go to {\tt Wizard's Castle} from {\tt Bridge of Death} with insufficient crystals, or
+\item the game is over. Note that the player dies of starvation even if the 31st days occurs while travelling to or arriving at a location.
+\end{itemize}
+
+\titledquestion{Map of SeePlusia}
+\label{sec:map}
+
+\begin{tikzpicture}[tnode/.style={circle,draw,thick,minimum size=50pt,align=center},
+  node distance = 50pt,
+  legend/.style={line width=1pt},
+  sarrow/.style={-latex,thick}, darrow/.style={latex'-latex',thick},
+  ]
+  \centering
+  \scriptsize
+  % Locations.
+  \node[tnode, draw=cyan](forest) {Enchanted\\Forest};
+  \node[tnode, right=of forest] (swamps) {Swamps\\of\\Despair};
+  \node[tnode, left=of forest] (bridge) {Bridge\\of\\Death};
+  \node[tnode, left=of bridge, draw=teal] (castle) {Wizard's\\Castle};
+  \node[tnode, above=of forest, draw=magenta] (marsh) {Marsh\\of the\\Undead};
+  \node[tnode, right=of marsh, fill=brown] (sands) {Sands\\of\\Quick};
+  \node[tnode, below=of forest] (cove) {Vampire\\Cove};
+  \node[tnode, right=of cove, draw=magenta] (fall) {Elven\\Waterfall};
+  \node[tnode, below=of cove, draw=magenta] (hill) {Werewolf\\Hill};
+  % Arrows.
+  \draw[sarrow] (marsh) -- node[above,midway]{1 day}(sands);
+  \draw[sarrow] (swamps) -- node[right,midway]{2 days}(sands);
+  \draw[sarrow] (bridge) -- node[above,midway]{5 days}(castle);
+  \draw[darrow] (marsh) -- node[right,midway]{1 day}(forest);
+  \draw[darrow] (swamps) -- node[above,midway]{2 days}(forest);
+  \draw[darrow] (cove) -- node[right,midway]{3 days}(forest);
+  \draw[darrow] (swamps) -- node[right,midway]{1 day}(fall);
+  \draw[darrow] (cove) -- node[right,midway]{3 days}(hill);
+  \draw[darrow] (bridge) -- node[above,midway]{1 day}(forest);
+  % Compass.
+  \node[inner sep=0pt,below=of castle] (compass) {\includegraphics[scale=.5]{nsew}};
+  % Legend.
+  \draw[cyan,legend] (-8,4) -- (-7,4);
+  \node[anchor=west] at (-6.75,4) {Start Adventure};
+  \draw[magenta,legend] (-8,3.5) -- (-7,3.5);
+  \node[anchor=west] at (-6.75,3.5) {Location of Objectos Crystal};
+  \draw[brown,legend] (-8,3) -- (-7,3);
+  \node[anchor=west] at (-6.75,3) {Slow Death};
+  \draw[teal,legend] (-8,2.5) -- (-7,2.5);
+  \node[anchor=west] at (-6.75,2.5) {Rescue Prince};
+\end{tikzpicture}
+
+\titledquestion{Credits}
+
+This assignment is courtesy of \href{https://twitter.com/nav_ejaz}{Naveed Ejaz}.
+\end{questions}
+\end{document}

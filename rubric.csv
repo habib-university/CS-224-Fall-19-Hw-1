@@ -1,0 +1,13 @@
+,,F - Unaccpetable,C - Acceptable,B - Good,A - Excellent,,
+,Weightage,"[0, 60)","[60, 70)","[70, 85)","[85, 100]",Score (out of 100),Comments
+Correctness,,,,,,,
+Compile and Run,10,The submitted file does not compile.,The file compiles with warnings.,The file compiles but crashes when running.,The file compiles without warning and runs correctly.,,
+State Display,10,Game state is not displayed at all.,,Game state is displayed on some moves.,Game state is displayed correctly at every move.,,
+Additional Messages,10,No additional messages are displayed.,,Some additional messages are displayed.,All additional messages are displayed.,,
+Navigaton (game rules) and state-update,30,Navigation and state-update are not implemented.,Both navigation and state-update are buggy.,One of navigation and state-update is buggy.,Navigation and state-updated are fully correct.,,
+Game Over,10,Game Over conditions are not recognized.,,Some of the Game Over conditions are recognized.,The game ends correctly.,,
+Quality,,,,,,,
+Modularity,10,The code contains one long main function.,,The code is occasionally divided into functions. Some functions are long.,"The code is modular - it consists of short, atomic functions.",,
+Documentation,10,There are no comments.,"There is an excess of comments, e.g. a comment per line, in at least some portions of the code.",Only some portions are well commented.,The code is not overly commented. Logical blocks of code are consistenly preceded by helpful comments which explain in terms of game logic (check valid move) rather than program logic (is input string the right value?).,,
+Style and Readability,10,The code is a random jumble of characters. I hope I never have to see anything like this ever again in my life.,,Only some portions of the code exhibit good style. Some lines are longer than 80 characters. Comments have a haphazard style. ,"All variables have meaningful names. There is a consistent, pleasing style regarding whitespace, naming, braces, and comments. All lines are within 80 characters.",,
+,,,,,Final Score,0,
